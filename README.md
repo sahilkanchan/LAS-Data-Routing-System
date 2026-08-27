@@ -24,26 +24,26 @@ The system is split into three main parts:
 ## Architecture
 
 ```
-┌──────────────────┐     ┌────────────────────────┐     ┌──────────────────┐
-│  InputProcessor   │ --> │  DataClassifier         │ --> │  DataRouter      │
-│  (load audio from │     │  (Wav2Vec 2.0 features  │     │  (route to the   │
-│   S3 via CSV list) │     │   -> KMeans clustering) │     │   matching       │
-└──────────────────┘     └────────────────────────┘     │   subtask model) │
+┌──────────────────┐       ┌────────────────────────┐     ┌──────────────────┐
+│  InputProcessor  │ -->   │  DataClassifier        │ --> │  DataRouter      │
+│  (load audio from│       │  (Wav2Vec 2.0 features │     │  (route to the   │
+│  S3 via CSV list)│       │  -> KMeans clustering) │     │   matching       │
+└──────────────────┘       └────────────────────────┘     │   subtask model) │
                                                           └──────────────────┘
                                                                     │
                                                                     v
                                                         ┌────────────────────┐
-                                                        │  Specialized        │
-                                                        │  Whisper model      │
-                                                        │  (per accent/       │
-                                                        │   dialect cluster)  │
+                                                        │  Specialized       │
+                                                        │  Whisper model     │
+                                                        │  (per accent/      │
+                                                        │   dialect cluster) │
                                                         └────────────────────┘
                                                                     │
                                                                     v
 ┌──────────────────┐     ┌────────────────────┐         ┌────────────────────┐
-│    DB_Util        │ --> │   MariaDB           │ <---  │viewed by dashboard │
-│ (save transcript + │     │  (transcriptions,   │      │(WER, latency,      │
-│  metadata)         │     │   metadata, WER)    │      │ routing breakdown) │
+│    DB_Util       │ --> │   MariaDB          │ <---    │viewed by dashboard │
+│(save transcript +│     │  (transcriptions,  │         │(WER, latency,      │
+│  metadata)       │     │   metadata, WER)   │         │ routing breakdown) │
 └──────────────────┘     └────────────────────┘         └────────────────────┘
 ```
 
