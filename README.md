@@ -40,11 +40,11 @@ The system is split into three main parts:
                                                         └────────────────────┘
                                                                     │
                                                                     v
-┌──────────────────┐     ┌────────────────────┐
-│    DB_Util        │ --> │   MariaDB           │ <--- viewed by dashboard
-│ (save transcript + │     │  (transcriptions,   │      (WER, latency,
-│  metadata)         │     │   metadata, WER)    │       routing breakdown)
-└──────────────────┘     └────────────────────┘
+┌──────────────────┐     ┌────────────────────┐         ┌────────────────────┐
+│    DB_Util        │ --> │   MariaDB           │ <---  │viewed by dashboard │
+│ (save transcript + │     │  (transcriptions,   │      │(WER, latency,      │
+│  metadata)         │     │   metadata, WER)    │      │ routing breakdown) │
+└──────────────────┘     └────────────────────┘         └────────────────────┘
 ```
 
 ## Tech Stack
