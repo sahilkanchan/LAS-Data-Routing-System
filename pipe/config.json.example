@@ -1,0 +1,14 @@
+{
+    "csv_path": "./paths.csv",
+    "bucket_name": "las.senior-design-spring2025-datarouting",
+    "model_path": "/app/DataClassifier/model/trained_model.joblib",
+    "aws_access_key_id": "INSERT_PUBLIC_KEY",
+    "aws_secret_access_key": "INSERT_PRIVATE_KEY"
+    "subtask_models": {
+        "0": "INSERT_API_ENDPOINT"
+        "1": "INSERT_API_ENDPOINT"
+        "2": "INSERT_API_ENDPOINT"
+        "3": "INSERT_API_ENDPOINT"
+        "4": "INSERT_API_ENDPOINT"
+    }
+}  

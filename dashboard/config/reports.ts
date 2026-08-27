@@ -1,0 +1,1 @@
+export const REPORTS_DATA_SOURCE = process.env.NEXT_PUBLIC_REPORTS_DATA_SOURCE ?? 'DataRoutingDB.mariadb'
